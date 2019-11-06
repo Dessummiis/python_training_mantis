@@ -16,7 +16,6 @@ class ProjectHelper:
         wd.find_element_by_xpath("//input[@value='Add Project']").click()
         wd.find_element_by_link_text("Proceed").click()
 
-
     def fill_in_the_fields(self, project):
         self.change_field_value("project_name", project.name)
         self.change_field_value("description", project.description)
