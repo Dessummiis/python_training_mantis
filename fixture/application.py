@@ -28,10 +28,11 @@ class Application:
         wd = self.wd
         wd.get(self.base_url)
 
-    def open_main_page(self):
+    def open_manage_projects_page(self):
         wd = self.wd
-        if not (wd.current_url.endswith("/addressbook") and len(wd.find_elements_by_name("add")) > 0):
-            wd.find_element_by_link_text("home").click()
+        if not (wd.current_url.endswith("/manage_proj_page.php")):
+            wd.find_element_by_link_text("Manage").click()
+            wd.find_element_by_link_text("Manage Projects").click()
 
     def destroy(self):
         self.wd.quit()
