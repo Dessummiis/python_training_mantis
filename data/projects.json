@@ -6,45 +6,5 @@
     "name": "",
     "status": null,
     "view_state": null
-  },
-  {
-    "py/object": "model.project.Project",
-    "description": "descriptionHWE",
-    "inherit_global": null,
-    "name": "nameInLCYR2Vn",
-    "status": null,
-    "view_state": null
-  },
-  {
-    "py/object": "model.project.Project",
-    "description": "description",
-    "inherit_global": null,
-    "name": "nameMk",
-    "status": null,
-    "view_state": null
-  },
-  {
-    "py/object": "model.project.Project",
-    "description": "descriptionq3JOZLo",
-    "inherit_global": null,
-    "name": "namejl1W8j",
-    "status": null,
-    "view_state": null
-  },
-  {
-    "py/object": "model.project.Project",
-    "description": "descriptionRO4",
-    "inherit_global": null,
-    "name": "nameWMYq",
-    "status": null,
-    "view_state": null
-  },
-  {
-    "py/object": "model.project.Project",
-    "description": "descriptionyDkahY",
-    "inherit_global": null,
-    "name": "nameOOzHSM",
-    "status": null,
-    "view_state": null
   }
 ]
