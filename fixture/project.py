@@ -27,5 +27,15 @@ class ProjectHelper:
             wd.find_element_by_name(field_name).clear()
             wd.find_element_by_name(field_name).send_keys(text)
 
+    project_cache = None
+
+    def get_project_list(self):
+        if self.project_cache is None:
+            wd = self.app.wd
+            self.app.open_manage_projects_page()
+            self.project_cache = []
+            for element in wd.
+
+
     def relogin(self):
         pass
