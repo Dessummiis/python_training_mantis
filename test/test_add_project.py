@@ -1,10 +1,15 @@
+from model.project import Project
+import random
+import string
 
 
-def test_add_project(app, json_projects):
+def random_string(maxlen):
+    symbols = string.ascii_letters + string.digits
+    return "".join([random.choice(symbols) for i in range(random.randrange(maxlen))])
+
+
+def test_add_project(app):
+    project = Project(name=random_string(10), description=random_string(20))
     app.session.login("administrator", "root")
     assert app.session.is_logged_in_as("administrator")
-    project = json_projects
-    # Проверить есть ли созданные группы
-    # Создать группу если нет групп
     app.project.create(project)
-    # Создать группу если есть группы

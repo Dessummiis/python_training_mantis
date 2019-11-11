@@ -5,3 +5,6 @@ class Project:
         self.inherit_global = inherit_global
         self.view_state = view_state
         self.description = description
+
+    def __repr__(self):
+        return "%s:%s" % (self.name, self.description)
