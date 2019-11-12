@@ -103,3 +103,4 @@ venv.bak/
 # mypy
 .mypy_cache/
 .idea/python_training_mantis.iml
+.idea/python_training_mantis.iml
