@@ -15,4 +15,5 @@ def test_add_project(app):
     assert app.session.is_logged_in_as("administrator")
     app.project.create(project)
     new_projects = app.project.get_project_list()
+    old_projects.append(project)
     assert sorted(old_projects, key=Project.id_or_max) == sorted(new_projects, key=Project.id_or_max)

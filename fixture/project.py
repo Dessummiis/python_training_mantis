@@ -27,26 +27,17 @@ class ProjectHelper:
             wd.find_element_by_name(field_name).clear()
             wd.find_element_by_name(field_name).send_keys(text)
 
-    project_cache = None
 
     def get_project_list(self):
-        if self.project_cache is None:
-            wd = self.app.wd
-            self.app.open_manage_projects_page()
-            self.project_cache = []
-        #     for element in wd.find_elements_by_xpath("//tr[@name='entry']"):
-        #         cells = element.find_elements_by_tag_name("td")
-        #         lastname_text = element.find_element_by_xpath(".//td[2]").text
-        #         firstname_text = element.find_element_by_xpath(".//td[3]").text
-        #         address = element.find_element_by_xpath(".//td[4]").text
-        #         id = element.find_element_by_name("selected[]").get_attribute("value")
-        #         all_emails = cells[4].text
-        #         all_phones = cells[5].text
-        #         self.contact_cache.append(Contact(first_name=firstname_text, last_name=lastname_text, address=address,
-        #                                           id=id, all_phones=all_phones,
-        #                                           all_emails=all_emails))
-        # return list(self.contact_cache)
-                #TODO
+        wd = self.app.wd
+        self.app.open_manage_projects_page()
+        self.project_cache = []
+        for element in wd.find_elements_by_xpath\
+                    ("//a[contains(@href, 'manage_proj_edit_page.php?project_id=')]"):
+            id = element.get_attribute('href').split("id=", 1)[1]
+            name = element.text
+            self.project_cache.append(Project(id=id, name=name))
+        return list(self.project_cache)
 
 
     def relogin(self):
