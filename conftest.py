@@ -30,7 +30,7 @@ def app(request, config):
     global target
     browser = request.config.getoption("--browser")
     if fixture is None or not fixture.is_valid():
-        fixture = Application(browser=browser, base_url=config['web']['baseUrl'])
+        fixture = Application(browser=browser, config=config)
     # fixture.session.ensure_login(username=web_config['username'], password=web_config['password'])
     return fixture
 
@@ -56,7 +56,7 @@ def restore_server_configuration(host, username, password):
     with ftputil.FTPHost(host, username, password) as remote:
         if remote.path.isfile("config_inc.php.bak"):
             if remote.path.isfile("config_inc.php"):
-                remote.remove("config_inc.php.bak")
+                remote.remove("config_inc.php")
             remote.rename("config_inc.php.bak", "config_inc.php")
 
 
