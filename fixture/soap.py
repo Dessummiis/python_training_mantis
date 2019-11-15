@@ -26,3 +26,7 @@ class SoapHelper:
         client = Client("http://localhost/mantisbt-1.2.20/api/soap/mantisconnect.php?wsdl")
         return client
 
+    def convert_contacts_to_model(self, contacts):
+        def convert(contact):
+            return Contact(id=str(contact.id), first_name=contact.first_name, last_name=contact.last_name)
+        return list(map(convert, contacts))
