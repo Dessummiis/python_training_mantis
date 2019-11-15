@@ -17,12 +17,12 @@ class MailHelper:
             if num > 0:
                 for n in range(num):
                     msglines = pop.retr(n+1)[1]
-                    msgtext = "\n".join(map(lambda x: x.decode('utf8'), msglines))
+                    msgtext = "\n".join(map(lambda x: x.decode('utf-8'), msglines))
                     msg = email.message_from_string(msgtext)
                     if msg.get("Subject") == subject:
                         pop.dele(n+1)
                         pop.quit()
-                        return msg.get_payload
+                        return msg.get_payload()
             pop.quit()
             time.sleep(3)
         return None
