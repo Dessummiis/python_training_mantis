@@ -1,5 +1,6 @@
 from suds.client import Client
 from suds import WebFault
+from model.project import Project
 
 
 class SoapHelper:
@@ -17,9 +18,14 @@ class SoapHelper:
 
     def get_project_list(self, username, password):
         client = self.wsdl()
-        project_list = []
+        self.project_list_refined = []
         project_list = client.service.mc_projects_get_user_accessible(username, password)
-        return project_list
+        for i in project_list:
+            id = i.id
+            name = i.name
+            description = i.description
+            self.project_list_refined.append(Project(id=id, name=name, description=description))
+        return list(self.project_list_refined)
 
 
     def wsdl(self):
